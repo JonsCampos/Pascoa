@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Para Julie</title>
+    <link rel="stylesheet" href="style.css">
+    <link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@700&family=Poppins:wght@400;600&display=swap" rel="stylesheet">
+</head>
+<body onclick="iniciarMusica()"> <audio id="musicaFundo" loop>
+        <source src="musica/musica.mp3" type="audio/mpeg">
+        Seu navegador não suporta áudio.
+    </audio>
+
+    <header>
+        <h1>Feliz Páscoa, Julie!</h1>
+        <p>Aumente o som e toque em qualquer lugar da tela...</p>
+    </header>
+
+    <main>
+        <section class="carrossel">
+            <div class="slides">
+                <img src="img/foto1.jpg" alt="Julie 1" class="slide active">
+                <img src="img/foto2.jpg" alt="Julie 2" class="slide">
+                <img src="img/foto3.jpg" alt="Julie 3" class="slide">
+                <img src="img/foto4.jpg" alt="Julie 4" class="slide">
+                <img src="img/foto5.jpg" alt="Julie 5" class="slide">
+                <img src="img/foto6.jpg" alt="Julie 6" class="slide">
+            </div>
+        </section>
+
+        <section class="conteudo-extra">
+            <div class="mensagem">
+                <h2>Oii, amor! 🍫</h2>
+                <p>Preparei esse cantinho pra você ver nossas fotos enquanto ouve essa música que me faz lembrar de nós dois.</p>
+                <span class="coracao">❤️</span>
+            </div>
+        </section>
+    </main>
+
+    <footer>
+        <p>Feito com amor pelo Jonas | Páscoa 2026</p>
+    </footer>
+
+    <script>
+    // Lógica do Carrossel
+    let slideIndex = 0;
+    const slides = document.querySelectorAll('.slide');
+    function mudarSlide() {
+        if (slides.length > 0) {
+            slides[slideIndex].classList.remove('active');
+            slideIndex = (slideIndex + 1) % slides.length;
+            slides[slideIndex].classList.add('active');
+        }
+    }
+    setInterval(mudarSlide, 4000);
+
+    // Lógica da Música
+    function iniciarMusica() {
+        const audio = document.getElementById('musicaFundo');
+        // Toca o áudio e ignora se der erro (caso o arquivo ainda não carregou)
+        audio.play().catch(e => console.log("Aguardando interação..."));
+    }
+</script>
+</body>
+</html>

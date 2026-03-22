@@ -1,0 +1,129 @@
+/* Configurações Globais - Otimizado para S25 FE */
+:root {
+    --rosa-principal: #ffb6c1;
+    --rosa-pastel: #fff0f3;
+    --rosa-escuro: #ff69b4;
+    --texto: #333;
+    --fundo: #ffffff;
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    -webkit-tap-highlight-color: transparent;
+}
+
+body {
+    font-family: 'Poppins', sans-serif;
+    background-color: var(--fundo);
+    color: var(--texto);
+    display: flex;
+    flex-direction: column;
+    min-height: 100vh;
+    overflow-x: hidden;
+    /* Espaço para a câmera frontal do S25 FE */
+    padding-top: env(safe-area-inset-top); 
+}
+
+/* Cabeçalho */
+header {
+    padding: 50px 20px 20px;
+    text-align: center;
+    background: linear-gradient(to bottom, var(--rosa-pastel), transparent);
+}
+
+header h1 {
+    font-family: 'Dancing Script', cursive;
+    color: var(--rosa-escuro);
+    font-size: 2.8rem;
+    margin-bottom: 5px;
+}
+
+header p {
+    font-size: 0.9rem;
+    color: var(--rosa-escuro);
+    opacity: 0.7;
+    font-weight: 600;
+}
+
+/* Container Principal */
+main {
+    flex: 1;
+    padding: 0 15px 40px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+/* Carrossel Imersivo */
+.carrossel {
+    position: relative;
+    width: 100%;
+    height: 65vh; /* Ajustado para sobrar espaço para o texto sem scroll excessivo */
+    max-height: 550px;
+    margin-bottom: 25px;
+    border-radius: 30px;
+    overflow: hidden;
+    box-shadow: 0 15px 35px rgba(255, 105, 180, 0.2);
+}
+
+.slide {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    position: absolute;
+    opacity: 0;
+    transition: opacity 1.2s ease-in-out, transform 1.5s ease-in-out;
+    transform: scale(1.15);
+}
+
+.slide.active {
+    opacity: 1;
+    transform: scale(1);
+}
+
+/* Seção de Texto */
+.conteudo-extra {
+    width: 100%;
+    max-width: 400px;
+    background: var(--rosa-pastel);
+    padding: 30px 25px;
+    border-radius: 30px;
+    text-align: center;
+    border: 1px solid rgba(255, 105, 180, 0.1);
+}
+
+.mensagem h2 {
+    color: var(--rosa-escuro);
+    font-size: 1.6rem;
+    margin-bottom: 12px;
+}
+
+.mensagem p {
+    font-size: 1rem;
+    color: #555;
+    line-height: 1.5;
+}
+
+/* Animação do Coração */
+.coracao {
+    display: inline-block;
+    margin-top: 15px;
+    animation: pulsar 1.5s infinite;
+    font-size: 2.2rem;
+}
+
+@keyframes pulsar {
+    0% { transform: scale(1); }
+    50% { transform: scale(1.25); }
+    100% { transform: scale(1); }
+}
+
+footer {
+    padding: 25px;
+    text-align: center;
+    font-size: 0.75rem;
+    color: #bbb;
+    letter-spacing: 1px;
+}
